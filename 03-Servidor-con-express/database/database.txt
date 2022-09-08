@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Green Tea",
+    "price": "2.50",
+    "thumbnail": "https://www.example.com/images/green-tea.jpg",
+    "id": 1
+  },
+  {
+    "name": "Oolong Tea",
+    "price": "2.50",
+    "thumbnail": "https://www.example.com/images/oolong-tea.jpg",
+    "id": 3
+  },
+  {
+    "name": "Black Tea",
+    "price": "2.50",
+    "thumbnail": "https://www.example.com/images/black-tea.jpg",
+    "id": 2
+  },
+  {
+    "name": "White Tea",
+    "price": "2.50",
+    "thumbnail": "https://www.example.com/images/white-tea.jpg",
+    "id": 4
+  }
+]
