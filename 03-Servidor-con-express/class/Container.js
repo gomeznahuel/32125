@@ -26,8 +26,8 @@ class Container {
   }
 
   async getById(id) {
-    const fileContent = await this.#readFile();
     try {
+      const fileContent = await this.#readFile();
       const product = fileContent.find((objeto) => objeto.id === id);
       return product;
     } catch (error) {
@@ -45,13 +45,11 @@ class Container {
   }
 
   async deleteById(id) {
-    const fileContent = await this.#readFile();
-
     try {
+      const fileContent = await this.#readFile();
       const productId = fileContent.findIndex((product) => product.id === parseInt(id))
       if (productId === -1) return { error: 'product not found' };
       fileContent.splice(productId, 1)
-  
       await fs.promises.writeFile(this.filePath, JSON.stringify(fileContent, null, 2))
     } catch (error) {
       console.log(error);

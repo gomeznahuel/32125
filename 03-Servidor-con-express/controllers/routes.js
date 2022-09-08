@@ -5,28 +5,18 @@ const file = new Container('./database/database.txt');
 const getProductsFromDB = file.getAll();
 
 const getProducts = async (req, res) => {
-  try {
-    const result = await getProductsFromDB;
-    res.json(result);
-  } catch (error) {
-    throw new Error(error, 'Error to get all products.');
-  }
+  const result = await getProductsFromDB;
+  res.json(result);
 };
 
 const getProductRandom = async (req, res) => {
-  try {
-    const result = await getProductsFromDB;
-    const randomProduct = result[Math.floor(Math.random() * result.length)];
-    res.json(randomProduct);
-  } catch (error) {
-    throw new Error(error, 'Error to get a random product.');
-  }
+  const result = await getProductsFromDB;
+  const randomProduct = result[Math.floor(Math.random() * result.length)];
+  res.json(randomProduct);
 };
 
 const getStartPage = (req, res) => {
-  res.send(
-    'Use /products to see all products or /randomProduct to see a random product.'
-  );
+  res.send('Use /products to see all products or /randomProduct to see a random product.');
 };
 
 module.exports = { getProducts, getProductRandom, getStartPage };

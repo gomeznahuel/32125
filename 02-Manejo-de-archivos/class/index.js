@@ -1,40 +1,43 @@
 const fs = require('fs');
 
 class Container {
-  constructor(file) {
-    this.file = file;
+  constructor(filePath) {
+    this.filePath = filePath;
   }
 
-  async save(object) {
+  async #readFile() {
     try {
-      for (let i = 0; i < object.length; i++) {
-        object[i].id = 1 + i;
-      }
-      console.log(`Saved ${object.length} products!`);
-      await fs.promises.writeFile(this.file, JSON.stringify(object));
+      const content = await fs.promises.readFile(this.filePath, 'utf-8');
+      const parseContent = JSON.parse(content);
+      return parseContent;
     } catch (error) {
-      throw new Error(error, 'Error to save the product');
+      console.log(error);
+    }
+  }
+
+  async save(obj) {
+    const fileContent = await this.#readFile();
+    if (fileContent.length !== 0) {
+      console.log(fileContent);
+      await fs.promises.writeFile(this.filePath, JSON.stringify([...fileContent, {...obj, id: fileContent[fileContent.length - 1].id + 1}], null, 2 ), 'utf-8');
+    } else { 
+      await fs.promises.writeFile(this.filePath, JSON.stringify([{ ...obj, id: 1 }]), 'utf-8');
     }
   }
 
   async getById(id) {
+    const fileContent = await this.#readFile();
     try {
-      const content = await this.getAll();
-      let idFound = content.find((prod) => prod.id === id);
-      console.log(idFound);
+      const objeto = fileContent.find((objeto) => objeto.id === id);
+      console.log(objeto);
     } catch (error) {
       throw new Error(error, 'Error to get the product by id');
     }
   }
 
   async getAll() {
-    try {
-      let content = await fs.promises.readFile(this.file, 'utf-8');
-      console.log(content);
-      return JSON.parse(content);
-    } catch (error) {
-      throw new Error(error, 'Error to get all the products');
-    }
+    const fileContent = await this.#readFile();
+    console.log(fileContent);
   }
 
   async deleteById(id) {
@@ -44,18 +47,28 @@ class Container {
       await fs.promises.writeFile(this.file, JSON.stringify(deleted, null, 4));
       console.log('Deleted');
     } catch (error) {
-      throw new Error(error, 'Error to delete the product by id');
+      console.log(`Error: no se pudo eliminar el producto con id ${id}.`);
     }
   }
 
   async deleteAll() {
-    try {
-      await fs.promises.writeFile(this.file, []);
-      console.log('Deleted all the products');
-    } catch (error) {
-      throw new Error(error, 'Error to delete all the products');
-    }
+    await fs.promises.writeFile(this.filePath, JSON.stringify([]), 'utf-8');
   }
 }
+    
 
-module.exports = Container;
+const contenedor = new Container('./productos.txt');
+contenedor.save(
+  {
+    name: 'Green Tea',
+    price: '2.50',
+    thumbnail: 'https://www.example.com/images/green-tea.jpg',
+    id: 1,
+  },
+  {
+    name: 'Oolong Tea',
+    price: '2.50',
+    thumbnail: 'https://www.example.com/images/oolong-tea.jpg',
+    id: 3,
+  }
+);
