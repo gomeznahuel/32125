@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/icon-form.png">
+    <title>Enter a product!</title>
+    <link rel="stylesheet" href="./assets/style/style.css" />
+  </head>
+  <body>
+    <div class='container'>
+      <h1 class="title">Enter a product!</h1>
+      <form action="/api/products" method="POST" class="form">
+        <input type="text" name="title" placeholder="Name of the product" class='input' />
+        <input type="number" name="price" placeholder="Price" class='input' />
+        <input type="text" name="thumbnail" placeholder="Thumbnail" class='input'  autocomplete='off'/>
+        <button class='button'>Send</button>
+      </form>
+    </div>
+
+    <script src="./assets/scripts/index.js"></script>
+  </body>
+</html>
