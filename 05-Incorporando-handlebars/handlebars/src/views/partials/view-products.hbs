@@ -1,0 +1,26 @@
+<div>
+  {{#if products.length}}
+    <h1>Products list</h1>
+    <table class='table table-light text-center'>
+      <tr>
+        <th class='align-middle py-3'>Name</th>
+        <th class='align-middle'>Price</th>
+        <th class='align-middle'>Image</th>
+      </tr>
+
+      {{#each products}}
+        <tr>
+          <td class='align-middle'>{{this.title}}</td>
+          <td class='align-middle'>{{this.price}}</td>
+          <td class='align-middle'><img src='{{this.thumbnail}}' width='50px' /></td>
+        </tr>
+      {{/each}}
+    </table>
+  {{else}}
+    <h2 class='text-center'>Products not found.</h2>
+  {{/if}}
+
+  <div class='text-center'>
+    <a href='/' class='btn btn-light'>Back to home</a>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container w-50 bg-dark text-white mt-3">
+  <h1>Add a product!</h1>
+  <form action="/products" method="post">
+    <input type="text" class="form-control mb-3" name="title" placeholder="Name of the product" required>
+    <input type="number" class="form-control mb-3" name="price" placeholder="Price" required>
+    <input type="text" class="form-control mb-3" name="thumbnail" placeholder="Thumbnail" required>
+    <div class='d-flex gap-3'>
+      <a href="/products" class='btn btn-light'>See all products</a>
+      <button class=' btn btn-success'>Add product</button>
+    </div>
+  </form>
+</div>

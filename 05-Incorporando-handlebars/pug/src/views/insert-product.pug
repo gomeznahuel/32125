@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+    head
+        title PUG | Add a Product
+        include includes/head.pug
+        style 
+            include includes/style.css
+    body(class='min-vh-100 bg-dark text-white')
+        div(class='d-flex flex-column align-items-center pt-3')
+            h1() Add a product!
+                form(action="/products" method="post" class="d-flex flex-column align-items-center justify-content-center mt-3")
+                    input(type="text" class="form-control" id="title" name="title" placeholder="Title")
+                    input(type="number" class="form-control mt-3" id="price" name="price" placeholder="Price")
+                    input(type="text" class="form-control mt-3" id="thumbnail" name="thumbnail" placeholder="Thumbnail")
+                    div(class="d-flex justify-content-center mt-3")
+                    button(type="submit" class="btn btn-success mt-3") Add product
+            a(href="/products")
+                button(class="btn btn-light mt-3") See all products  

@@ -1,0 +1,12 @@
+<div class='d-flex flex-column align-items-center pt-3'>
+  <h1>Add a product!</h1>
+  <form action='/products' method='POST' class='d-flex flex-column align-items-center justify-content-center w-25 mt-3' >
+    <input type='text' name='title' placeholder='Name of the product' class='form-control mb-3' required />
+    <input type='number' name='price' placeholder='Price' class='form-control mb-3' required />
+    <input type='text' name='thumbnail' placeholder='Thumbnail' class='form-control mb-3' required />
+    <div class='d-flex gap-3'>
+      <a href='/products' class='btn btn-light'>See all products</a>
+      <button class='btn btn-success'>Add product</button>
+    </div>
+  </form>
+</div>
