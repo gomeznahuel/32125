@@ -1,5 +1,5 @@
 {
-  "name": "05-handlebars",
+  "name": "06-socket",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,8 +12,10 @@
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.6"
+    "express-handlebars": "^6.0.6",
+    "socket.io": "^4.5.2"
   }
 }
