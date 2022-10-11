@@ -1,0 +1,22 @@
+[
+  {
+    "timestamp": 1665462727120,
+    "name": "Saxofón",
+    "description": "Gibson",
+    "code": "#asda456",
+    "thumbnail": "https://pexels.com/guitar",
+    "price": 750,
+    "stock": 5,
+    "id": 1
+  },
+  {
+    "timestamp": 1665462747267,
+    "name": "Guitar",
+    "description": "Gibson",
+    "code": "#asda456",
+    "thumbnail": "https://pexels.com/guitar",
+    "price": 750,
+    "stock": 5,
+    "id": 2
+  }
+]
