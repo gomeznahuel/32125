@@ -1,0 +1,30 @@
+<div id="newTable"></div>
+<div class="entry">
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody id="trTable">
+      <% listProd.forEach(prod=> { %>
+        <tr>
+          <td>
+            <%=prod.id %>
+          </td>
+          <td>
+            <%=prod.name %>
+          </td>
+          <td>
+            <%=prod.price %>
+          </td>
+          <td><img src="<%=prod.thumbnail %>" alt="<%=prod.name %>" width="25"></td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+</div>
