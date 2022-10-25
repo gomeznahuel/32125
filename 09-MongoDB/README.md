@@ -148,22 +148,22 @@ const productsData = [
 ```
 
 ```
-db.mensajes.insertMany(messagesData)
-db.productos.insertMany(productsData)
+db.messages.insertMany(messagesData)
+db.products.insertMany(productsData)
 ```
 
 ```
-db.mensajes.find()
-db.productos.find()
+db.messages.find()
+db.products.find()
 ```
 
 ```
-db.mensajes.estimatedDocumentCount()
-db.productos.estimatedDocumentCount()
+db.messages.estimatedDocumentCount()
+db.products.estimatedDocumentCount()
 ```
 
 ```
-db.productos.insertOne({
+db.products.insertOne({
     title: "Producto 11",
     price: 1100,
     thumbnail: "https://cdn3.iconfinder.com/data/icons/education-209/64/globe-earth-geograhy-planet-school-256.png",
@@ -172,15 +172,15 @@ db.productos.insertOne({
 ```
 
 ```
- db.productos.find({price:{$gte:1000,$lte:3000}})
- db.productos.find({price:{$gt:3000}})
- db.productos.find().skip(2).limit(1).sort({price:1});
+ db.products.find({price:{$gte:1000,$lte:3000}})
+ db.products.find({price:{$gt:3000}})
+ db.products.find().skip(2).limit(1).sort({price:1});
 ```
 
 ```
-db.productos.updateMany({}, {$set:{stock:100}})
-db.productos.updateMany({price:{$gt:4000}},{$set:{stock:0}})
-db.productos.deleteMany({price:{$lt:1000}})
+db.products.updateMany({}, {$set:{stock:100}})
+db.products.updateMany({price:{$gt:4000}},{$set:{stock:0}})
+db.products.deleteMany({price:{$lt:1000}})
 ```
 
 ```
@@ -192,5 +192,5 @@ use ecommerce
 ```
 
 ```
-db.productos.find()
+db.products.find()
 ```
