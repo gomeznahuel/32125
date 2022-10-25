@@ -12,7 +12,7 @@ class Server {
     this.port = process.env.PORT;
     this.server = createServer(this.app);
     this.io = new IOServer(this.server, {});
-    this.products = [];
+    this.products = []; 
     this.messages = [];
     this.hbsRoutes = '/';
   }
